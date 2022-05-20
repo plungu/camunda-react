@@ -12,8 +12,7 @@ COPY webpack.config.js webpack.config.js
 COPY .env .env
 COPY src/ src/
 # run maven build and cache dependencies
-#RUN mvn -s settings.xml dependency:resolve-plugins dependency:resolve clean package -DskipTests -Dhttps.protocols=TLSv1.1,TLSv1.2 --activate-profiles !default
-RUN --mount=type=cache,target=/root/.m2 mvn -s settings.xml -DskipTests -Dmaven.test.skip clean package
+RUN --mount=type=cache,target=/root/.m2 mvn -DskipTests -Dmaven.test.skip clean package
 
 ####
 ## create another image layer and run the app that was built
