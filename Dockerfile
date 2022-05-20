@@ -6,7 +6,6 @@ FROM maven:3-jdk-8 as builder
 WORKDIR /usr/src/app
 # copy files from project
 COPY pom.xml pom.xml
-COPY settings.xml settings.xml
 COPY package.json package.json
 COPY webpack.config.js webpack.config.js
 COPY .env .env
